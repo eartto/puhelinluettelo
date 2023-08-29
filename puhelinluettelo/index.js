@@ -10,6 +10,8 @@ app.use(express.json())
 
 app.use(cors())
 
+app.use(express.static('build'))
+
 morgan.token('person', (req) => {
   return JSON.stringify({
     name: req.body.name,
