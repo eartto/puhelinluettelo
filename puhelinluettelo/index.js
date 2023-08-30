@@ -105,6 +105,8 @@ app.delete('/api/persons/:id', (req, res) => {
     const id = Number(req.params.id)
     const person = persons.filter(person => person.id !== id)
     if (person) {
+        const index = persons.indexOf(person)
+        persons.splice(index, 1)
         res.json(person)
         res.status(204).end()
     } else {
